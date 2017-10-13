@@ -182,14 +182,14 @@
      			<input type="text" name="number1">
      			<p>Number 2</p>
      			<input type="text" name="number2">
-     			<button id="#btnplus" class="ui-btn ui-btn-inline">+</button>
+     			<button id="btnplus" class="ui-btn ui-btn-inline">+</button>
 				<button id="btnminus" class="ui-btn ui-btn-inline">-</button>
      		</form>
      	</div>
      	<div data-role="footer"><h1>Mobile Programming</h1></div>
 	</div>
 
-    <script type="text/javascript" src="cordova.js"></script>
+    <!-- <script type="text/javascript" src="cordova.js"></script> -->
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript">
     $(document).on("pagecreate", function() {
@@ -217,15 +217,28 @@
     </script>
 
     <script type="text/javascript" >
-    	  $(document).ready(function() {
-			$("#btnplus").on("click", calculateSum);
- 	
- 			function calculateSum (){
- 				var number1 = $("input[name=number1]").val ()*1;
- 				var number2 = $("input[name=number2]").val ()*1;
- 				var result = number1 + number2;
- 				$("input[name=result]").val(result);
- 		}
+          $(document).ready(function() {
+
+            $("#btnplus").on("click", calculateSum);
+    
+            function calculateSum (){
+                var number1 = parseInt($("input[name=number1]").val());
+                var number2 = parseInt($("input[name=number2]").val());
+                var result = number1 + number2;
+                $("input[name=result]").val(result);
+                return false;
+            };
+
+            $("#btnminus").on("click", calculateDif);
+
+            function calculateDif (){
+                var number1 = parseInt($("input[name=number1]").val());
+                var number2 = parseInt($("input[name=number2]").val());
+                var result = number1 - number2;
+                $("input[name=result]").val(result);
+                return false;
+            };
+
     });
     </script>
 </body>
